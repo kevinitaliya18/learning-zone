@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="shortcut icon" href="assets/images/photo-1581078426770-6d336e5de7bf.jpeg" type="image/x-icon">
+        <meta name="description" content="Combining health and learning assessments, our project aims to identify and support slow learners. Using a Health Quotient (HQ) score and a quiz-based approach, we’ll provide personalized tips for effective remedial teaching.">
+        <title>Learning Zone</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+       <script>
+        function calculateTotalsAndFinalAnswer() {
+            // Array of table IDs
+            var tableIds = ['Academic_Performance', 'Attention_and_Engagement', 'Homework_Completion', 'Behavioral_Issues', 'Communication_Skills','Relationships'];
+    
+            // Initialize an empty string to store the results
+            var results = "";
+    
+            tableIds.forEach(function (tableId) {
+                var selectedOptions = document.querySelectorAll('#' + tableId + ' input[type="radio"]:checked');
+                var counts = { 'A': 0, 'B': 0, 'C': 0, 'D': 0 };
+    
+                selectedOptions.forEach(function (option) {
+                    counts[option.value]++;
+                });
+    
+                var totalA = counts['A'];
+                var totalB = counts['B'];
+                var totalC = counts['C'];
+                var totalD = counts['D'];
+    
+                var finalAnswer = (totalA * 1) + (totalB * 2) + (totalC * 3) + (totalD * 4);
+    
+                // Add the totals for the current table to the results string
+                results += 'Total Counts for ' + tableId + ':\nA: ' + totalA + '\nB: ' + totalB + '\nC: ' + totalC + '\nD: ' + totalD + '\n\nFinal Answer: ' + finalAnswer + '\n\n';
+
+                if (tableId === 'Academic_Performance' && finalAnswer < 10) {
+                        var button = document.createElement("button");
+                        button.innerHTML = "see tips for Academic Performance";
+                        button.onclick = function () {
+                            window.location.href = "Academic_Performance.html";
+                        };
+                        document.body.appendChild(button);
+                }
+                if (tableId === 'Attention_and_Engagement' && finalAnswer < 8) {
+                        var button = document.createElement("button");
+                        button.innerHTML = "see tips for Attention and Engagement";
+                        button.onclick = function () {
+                            window.location.href = "Attention_and_Engagement.html";
+                        };
+                        document.body.appendChild(button);
+                }
+                if (tableId === 'Homework_Completion' && finalAnswer < 6) {
+                        var button = document.createElement("button");
+                        button.innerHTML = "see tips for Homework Completion";
+                        button.onclick = function () {
+                            window.location.href = "Homework_Completion.html";
+                        };
+                        document.body.appendChild(button);
+                }
+                if (tableId === 'Behavioral_Issues' && finalAnswer < 6) {
+                        var button = document.createElement("button");
+                        button.innerHTML = "see tips for Behavioral Issues";
+                        button.onclick = function () {
+                            window.location.href = "Behavioral_Issues.html";
+                        };
+                        document.body.appendChild(button);
+                }
+                if (tableId === 'Communication_Skills' && finalAnswer < 6) {
+                        var button = document.createElement("button");
+                        button.innerHTML = "see tips for Communication Skills";
+                        button.onclick = function () {
+                            window.location.href = "Communication_Skills.html";
+                        };
+                        document.body.appendChild(button);
+                }
+                if (tableId === 'Relationships' && finalAnswer < 4) {
+                        var button = document.createElement("button");
+                        button.innerHTML = "see tips for Relationships";
+                        button.onclick = function () {
+                            window.location.href = "Relationships.html";
+                        };
+                        document.body.appendChild(button);
+                }
+            });
+            
+            
+            // Display the results in a single alert
+            alert(results);
+            
+
+        }
+    </script>
+     <form action="process_form.php" method="POST">
+        <input type="hidden" name="form_name" value="form1">
+    </form>
+    </head>
+    <body bgcolor="sky blue">
+        
+        <center>
+            <form>
+                <h1>ARE YOU READY TO CHECK YOUR LEARNING ABILITY ?</h1>
+                <table id="Academic_Performance">
+                    <tr>
+                        <th>NO.</th>
+                        <th>topic</th>
+                        <th>points</th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="5">01</td>
+                        <td rowspan="5">Academic Performance</td>
+                        <td>GRADE HISTORY</td>
+                        <td><input type="radio" name="q1" value="A">Performs significantly below grade level</td>
+                        <td><input type="radio" name="q1" value="B">Performs slightly below grade level</td>
+                        <td><input type="radio" name="q1" value="C">Performs at grade level</td>
+                        <td><input type="radio" name="q1" value="D">Consistently performs above grade level</td>
+                    </tr>
+                    <tr>
+                        <td>SCORE CARD</td>
+                        <td><input type="radio" name="q2" value="A">Scores well below the average</td>
+                        <td><input type="radio" name="q2" value="B"> Scores slightly below the average</td>
+                        <td><input type="radio" name="q2" value="C">Scores above the average but not in the top percentile</td>
+                        <td><input type="radio" name="q2" value="D">Consistently scores in the top percentile</td> 
+                    </tr>
+                    <tr>
+                        <td>Subjects criterea</td>
+                        <td><input type="radio" name="q3" value="A">Struggles with low grades in most subjects</td>
+                        <td><input type="radio" name="q3" value="B">Experiences fluctuations in grades across subjects</td>
+                        <td><input type="radio" name="q3" value="C">Maintains above-average grades in most subjects</td>
+                        <td><input type="radio" name="q3" value="D">Achieves consistently high grades in all subjects</td>
+                    </tr>
+                    <tr>
+                        <td>ASSESSMENTS</td>
+                        <td><input type="radio" name="q4" value="A">Struggles in both written and verbal assessments</td>
+                        <td><input type="radio" name="q4" value="B">Performs well verbally but struggles in written assessments</td>
+                        <td><input type="radio" name="q4" value="C">Performs well in written assessments but struggles verbally</td>
+                        <td><input type="radio" name="q4" value="D">Consistently excels in both written and verbal assessments</td>
+                    </tr>
+                    <tr>
+                        <td>PROBLEM-SOLVING SKILLS</td>
+                        <td><input type="radio" name="q5" value="A"> Rarely demonstrates effective problem-solving skills</td>
+                        <td><input type="radio" name="q5" value="B">Often struggles with problem-solving tasks</td>
+                        <td><input type="radio" name="q5" value="C"> Generally exhibits good problem-solving skills but may struggle at times</td>
+                        <td><input type="radio" name="q5" value="D">Consistently demonstrates excellent problem-solving skills</td>
+                    </tr>
+                </table>
+                <table id="Attention_and_Engagement">
+                    <tr>
+                        <th>NO.</th>
+                        <th>topic</th>
+                        <th>points</th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">02</td>
+                        <td rowspan="4">Attention and Engagement</td>
+                        <td>Attention On Class</td>
+                        <td><input type="radio" name="q6" value="A">Struggles to stay engaged in most activities</td>
+                        <td><input type="radio" name="q6" value="B">Frequently loses focus and requires reminders</td>
+                        <td><input type="radio" name="q6" value="C"> Sometimes loses focus but quickly regains it</td>
+                        <td><input type="radio" name="q6" value="D">Maintains high focus and engagement in class</td>
+                    </tr>
+                    <tr>
+                        <td>participate in class activities</td>
+                        <td><input type="radio" name="q7" value="A">Rarely engages in class activities</td>
+                        <td><input type="radio" name="q7" value="B"> Rarely participates actively</td>
+                        <td><input type="radio" name="q7" value="C">Participates actively most of the time</td>
+                        <td><input type="radio" name="q7" value="D">Always participates actively in class discussions</td> 
+                    </tr>
+                    <tr>
+                        <td>INTRECTION ON CLASSROOM</td>
+                        <td><input type="radio" name="q8" value="A">Struggles to focus on any activity</td>
+                        <td><input type="radio" name="q8" value="B">Frequently becomes distracted during tasks</td>
+                        <td><input type="radio" name="q8" value="C">Maintains good focus but occasionally becomes distracted</td>
+                        <td><input type="radio" name="q8" value="D"> Demonstrates exceptional focus and attentiveness</td>
+                    </tr>
+                    <tr>
+                        <td>Engagement on classroom</td>
+                        <td><input type="radio" name="q9" value="A">Displays minimal interest and engagement in all subjects</td>
+                        <td><input type="radio" name="q9" value="B">Has difficulty maintaining interest in most subjects</td>
+                        <td><input type="radio" name="q9" value="C">Engages well in most subjects but has areas of low interest</td>
+                        <td><input type="radio" name="q9" value="D">Demonstrates high interest and engagement in all subjects</td>
+                    </tr>
+                </table>
+                <table id="Homework_Completion">
+                    <tr>
+                        <th>NO.</th>
+                        <th>topic</th>
+                        <th>points</th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">03</td>
+                        <td rowspan="3">Homework Completion</td>
+                        <td>Attende FOR Homework</td>
+                        <td><input type="radio" name="q10" value="A">Rarely completes homework assignments</td>
+                        <td><input type="radio" name="q10" value="B">Inconsistently completes homework assignments</td>
+                        <td><input type="radio" name="q10" value="C"> Completes most homework assignments on time</td>
+                        <td><input type="radio" name="q10" value="D"> Completes all homework assignments on time</td>
+                    </tr>
+                    <tr>
+                        <td>you nueed extensive support</td>
+                        <td><input type="radio" name="q11" value="A">Rarely completes homework without extensive support</td>
+                        <td><input type="radio" name="q11" value="B">Requires frequent reminders to complete homework</td>
+                        <td><input type="radio" name="q11" value="C"> Generally completes homework with some supervision</td>
+                        <td><input type="radio" name="q11" value="D">Shows strong commitment to completing homework</td> 
+                    </tr>
+                    <tr>
+                        <td>TIMEDURATION FOR Homework OR assignments</td>
+                        <td><input type="radio" name="q12" value="A">Rarely completes assignments independently</td>
+                        <td><input type="radio" name="q12" value="B"> Requires significant help and supervision to complete assignments</td>
+                        <td><input type="radio" name="q12" value="C">Completes most assignments independently but may need help</td>
+                        <td><input type="radio" name="q12" value="D">Completes all assignments independently and on time</td>
+                    </tr>
+                </table>
+                <table id="Behavioral_Issues">
+                    <tr>
+                        <th>NO.</th>
+                        <th>topic</th>
+                        <th>points</th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">04</td>
+                        <td rowspan="3">Behavioral Issues</td>
+                        <td>dicipline</td>
+                        <td><input type="radio" name="q13" value="A"> Consistently displays disruptive behavior</td>
+                        <td><input type="radio" name="q13" value="B">Frequently exhibits disruptive behavior</td>
+                        <td><input type="radio" name="q13" value="C">  Occasionally displays disruptive behavior</td>
+                        <td><input type="radio" name="q13" value="D"> Rarely exhibits disruptive behavior</td>
+                    </tr>
+                    <tr>
+                        <td>Your behavior in class</td>
+                        <td><input type="radio" name="q14" value="A">Consistently displays disruptive behavior</td>
+                        <td><input type="radio" name="q14" value="B">Struggles with behavioral issues regularly</td>
+                        <td><input type="radio" name="q14" value="C">Displays good behavior but occasionally misbehaves</td>
+                        <td><input type="radio" name="q14" value="D"> Exhibits excellent behavior consistently</td> 
+                    </tr>
+                    <tr>
+                        <td>Are you follow the rules?</td>
+                        <td><input type="radio" name="q15" value="A">Consistently ignores rules and authority</td>
+                        <td><input type="radio" name="q15" value="B"> Frequently exhibits behavioral issues despite correction</td>
+                        <td><input type="radio" name="q15" value="C"> Occasionally breaks rules but responds to correction</td>
+                        <td><input type="radio" name="q15" value="D"> Rarely exhibits behavioral issues and follows rules</td>
+                    </tr>
+                </table>
+                <table id="Communication_Skills">
+                    <tr>
+                        <th>NO.</th>
+                        <th>topic</th>
+                        <th>points</th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">05</td>
+                        <td rowspan="3">Communication Skills</td>
+                        <td>Attende FOR Homework</td>
+                        <td><input type="radio" name="q16" value="A"> Has significant communication difficulties</td>
+                        <td><input type="radio" name="q16" value="B">Often has difficulty communicating with peers and teachers</td>
+                        <td><input type="radio" name="q16" value="C"> Generally communicates well but may struggle at times</td>
+                        <td><input type="radio" name="q16" value="D"> Communicates effectively with peers and teachers</td>
+                    </tr>
+                    <tr>
+                        <td>you nueed extensive support</td>
+                        <td><input type="radio" name="q17" value="A">Struggles to communicate basic information</td>
+                        <td><input type="radio" name="q17" value="B">Frequently has trouble expressing ideas coherently</td>
+                        <td><input type="radio" name="q17" value="C">Communicates adequately but may struggle with complex topics</td>
+                        <td><input type="radio" name="q17" value="D"> Expresses thoughts clearly and effectively</td> 
+                    </tr>
+                    <tr>
+                        <td>TIMEDURATION FOR Homework OR assignments</td>
+                        <td><input type="radio" name="q18" value="A"> Struggles to communicate even basic thoughts and ideas</td>
+                        <td><input type="radio" name="q18" value="B">Often has difficulty expressing thoughts and ideas clearly</td>
+                        <td><input type="radio" name="q18" value="C">Communicates well but may struggle with complex or emotional topics</td>
+                        <td><input type="radio" name="q18" value="D">Communicates thoughts and ideas effectively in all situations</td>
+                    </tr>
+                </table>
+                <table id="Relationships">
+                    <tr>
+                        <th>NO.</th>
+                        <th>topic</th>
+                        <th>points</th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">06</td>
+                        <td rowspan="2">Relationships</td>
+                        <td>Can you make relation easily</td>
+                        <td><input type="radio" name="q19" value="A">Has very few positive relationships</td>
+                        <td><input type="radio" name="q19" value="B">Struggles to form positive relationships with peers and teachers</td>
+                        <td><input type="radio" name="q19" value="C"> Has some positive relationships but struggles with a few</td>
+                        <td><input type="radio" name="q19" value="D"> Easily forms positive relationships with peers and teachers</td>
+                    </tr>
+                    <tr>
+                        <td>How to maintain you relation</td>
+                        <td><input type="radio" name="q20" value="A">Has few or no positive relationships</td>
+                        <td><input type="radio" name="q20" value="B"> Struggles to form and maintain positive relationships</td>
+                        <td><input type="radio" name="q20" value="C">Forms positive relationships but occasionally experiences conflicts</td>
+                        <td><input type="radio" name="q20" value="D"> Forms and maintains positive relationships with peers and adults</td> 
+                    </tr>
+                   
+                </table>
+                <input type="button" value="RESULT" onclick="calculateTotalsAndFinalAnswer()">
+            </form>
+        </center>
+
+    </body>
+</html>

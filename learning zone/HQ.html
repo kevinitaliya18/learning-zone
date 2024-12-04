@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="shortcut icon" href="assets/images/photo-1581078426770-6d336e5de7bf.jpeg" type="image/x-icon">
+<meta name="description" content="Combining health and learning assessments, our project aims to identify and support slow learners. Using a Health Quotient (HQ) score and a quiz-based approach, we’ll provide personalized tips for effective remedial teaching.">
+<title>Learning Zone</title>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function calculateTotalsAndFinalAnswer() {
+            var selectedOptions = document.querySelectorAll('input[type="radio"]:checked');
+            var counts = { 'A': 0, 'B': 0, 'C': 0, 'D': 0 };
+
+            selectedOptions.forEach(function (option) {
+                counts[option.value]++;
+            });
+
+            var totalA = counts['A'];
+            var totalB = counts['B'];
+            var totalC = counts['C'];
+            var totalD = counts['D'];
+
+            var finalAnswer = (totalA * 1) + (totalB * 2) + (totalC * 3) + (totalD * 4);
+
+            alert('Total Counts:\nA: ' + totalA + '\nB: ' + totalB + '\nC: ' + totalC + '\nD: ' + totalD + '\n\nFinal Answer: ' + finalAnswer);
+            if(finalAnswer>50){
+                alert('your score is more than 50 so click ok to go for next page');
+                window.location.href='identified.html';
+            }
+            else{
+                alert('Your HQ is not more than 50 so first you care your health than try to improve your study. if you want any type of help to better your HQ than your chatt is front of you.you see that and little try to grow your HQ score') 
+            }
+        }
+    </script>
+     <form action="process_form.php" method="POST">
+        <input type="hidden" name="form_name" value="form1">
+    </form>
+</head>
+<body bgcolor="sky blue">
+    
+   
+<center>
+    <form>
+<h1>ARE YOU HEALTHY ?</h1>
+<table border="9" >
+<tr>
+    <th></th>
+    <th>Questions</th>
+    <th>A</th>
+    <th>B</th>
+    <th>C</th>
+    <th>D</th>
+</tr>
+<tr>
+    <td>01</td>
+    <td>How often do you exercise/play a physical sport in a week?</td>
+    <td><input type="radio" name="q1" value="A">never</td>
+    <td><input type="radio" name="q1" value="B">1-2 times a week</td>
+    <td><input type="radio" name="q1" value="C">3-4 times a week</td>
+    <td><input type="radio" name="q1" value="D">almost every day</td>
+</tr>
+<tr>
+    <td>02</td>
+    <td>How would you describe you physique(body) ?</td>
+    <td><input type="radio" name="q2" value="A">very overweight/ very underweight </td>
+    <td><input type="radio" name="q2" value="B">slightly overweight/ slightly underweight</td>
+    <td><input type="radio" name="q2" value="C">average</td>
+    <td><input type="radio" name="q2" value="D">Athletic (physically strong)</td>
+</tr>
+<tr>
+    <td>03</td>
+    <td>How would are you meal-times?</td>
+    <td><input type="radio" name="q3" value="A">Highly irregular</td>
+    <td><input type="radio" name="q3" value="B">slightly irregular</td>
+    <td><input type="radio" name="q3" value="C">more or less regular</td>
+    <td><input type="radio" name="q3" value="D">always regular and at fixed time.</td>
+</tr>
+<tr>
+    <td>04</td>
+    <td>Do you have breakfast every day?</td>
+    <td><input type="radio" name="q4" value="A">very rarely</td>
+    <td><input type="radio" name="q4" value="B">i catch somthing on the run, not very regular</td>
+    <td><input type="radio" name="q4" value="C">most of time i have breakfast</td>
+    <td><input type="radio" name="q4" value="D">I always start the day with a proper breakfast</td>
+</tr>
+<tr>
+    <td>05</td>
+    <td>What does your diet(regular food) consist of(made up of) ?</td>
+    <td><input type="radio" name="q5" value="A">lots of junk, oily and fatty food</td>
+    <td><input type="radio" name="q5" value="B">sizeable amounts of junk food</td>
+    <td><input type="radio" name="q5" value="C">regular food with occasional over eating</td>
+    <td><input type="radio" name="q5" value="D">A proper balanced diet</td>
+</tr>
+<tr>
+    <td>06</td>
+    <td>How much water/liquid do you drink in a day?</td>
+    <td><input type="radio" name="q6" value="A">not fix</td>
+    <td><input type="radio" name="q6" value="B">1-2 liters</td>
+    <td><input type="radio" name="q6" value="C">3-4 liters</td>
+    <td><input type="radio" name="q6" value="D">more than 4 litres</td>
+</tr>
+<tr>
+    <td>07</td>
+    <td>Do you eat fruits and vegetables?</td>
+    <td><input type="radio" name="q7" value="A">only when they are cooked in junk food</td>
+    <td><input type="radio" name="q7" value="B">when i am forced to</td>
+    <td><input type="radio" name="q7" value="C">sometimes</td>
+    <td><input type="radio" name="q7" value="D">regular</td>
+</tr>
+<tr>
+    <td>08</td>
+    <td>Are you conscious of the food you eat?</td>
+    <td><input type="radio" name="q8" value="A">not at all,I don't believe in counting calories</td>
+    <td><input type="radio" name="q8" value="B">i eat every thing</td>
+    <td><input type="radio" name="q8" value="C">i avoid oily food</td>
+    <td><input type="radio" name="q8" value="D">Yes, I always choose good healthy food</td>
+</tr>
+</tr>
+<tr>
+    <td>09</td>
+    <td>what do you snack on in between meals?</td>
+    <td><input type="radio" name="q9" value="A">fried snacks and sweets</td>
+    <td><input type="radio" name="q9" value="B">whatever's around</td>
+    <td><input type="radio" name="q9" value="C">sandwichies</td>
+    <td><input type="radio" name="q9" value="D">Fruits or nuts</td>
+</tr>
+</tr>
+<tr>
+    <td>10</td>
+    <td>HOW often do you have soft drink?</td>
+    <td><input type="radio" name="q10" value="A">3-4 times a week or more</td>
+    <td><input type="radio" name="q10" value="B">1-2 times a week</td>
+    <td><input type="radio" name="q10" value="C">only occasionally</td>
+    <td><input type="radio" name="q10" value="D">I don't drink</td>
+</tr>
+<tr>
+    <td>11</td>
+    <td>DO you smoke or chew tobacco?</td>
+    <td><input type="radio" name="q11" value="A">regularly</td>
+    <td><input type="radio" name="q11" value="B">sometimes</td>
+    <td><input type="radio" name="q11" value="C">I just taste</td>
+    <td><input type="radio" name="q11" value="D">never</td>
+</tr>
+<tr>
+    <td>12</td>
+    <td>How do you generally feel when you wake up?</td>
+    <td><input type="radio" name="q12" value="A">I can barely drag myself out if bad</td>
+    <td><input type="radio" name="q12" value="B">I wait for morning tea to wake me up </td>
+    <td><input type="radio" name="q12" value="C">Could have slept more,but once I am out of bed I am fine</td>
+    <td><input type="radio" name="q12" value="D">Refreshed and ready to start work</td>
+</tr>
+<tr>
+    <td>13</td>
+    <td>How would you describe your study?</td>
+    <td><input type="radio" name="q13" value="A">Highly stressful,I hate my study</td>
+    <td><input type="radio" name="q13" value="B">A little stressful at time</td>
+    <td><input type="radio" name="q13" value="C">Quite relaxed</td>
+    <td><input type="radio" name="q13" value="D">Enjoyable, I look forward to it every morning</td>
+</tr>
+<tr>
+    <td>14</td>
+    <td>How regular are your working hours?</td>
+    <td><input type="radio" name="q14" value="A">Highly irregular</td>
+    <td><input type="radio" name="q14" value="B">slightly irregular</td>
+    <td><input type="radio" name="q14" value="C">more or less regular</td>
+    <td><input type="radio" name="q14" value="D">always regular and fixed-timings</td>
+</tr>
+<tr>
+    <td>15</td>
+    <td>How many hours a day spend commuting to and from school or collage ?</td>
+    <td><input type="radio" name="q15" value="A">more than 3 hours</td>
+    <td><input type="radio" name="q15" value="B">between 2-3 hours</td>
+    <td><input type="radio" name="q15" value="C">between 1-2 hours</td>
+    <td><input type="radio" name="q15" value="D">less than 1 hour</td>
+</tr>
+<tr>
+    <td>16</td>
+    <td>How many hours of sleep do you get every night?</td>
+    <td><input type="radio" name="q16" value="A">less than 4 hours</td>
+    <td><input type="radio" name="q16" value="B">4-6 hours </td>
+    <td><input type="radio" name="q16" value="C">6-7 hours</td>
+    <td><input type="radio" name="q16" value="D">8 hours</td>
+</tr>
+<tr>
+    <td>17</td>
+    <td>How often do you take medicines?</td>
+    <td><input type="radio" name="q17" value="A">I take medicines often</td>
+    <td><input type="radio" name="q17" value="B">sometimes</td>
+    <td><input type="radio" name="q17" value="C">only when the pian gets unbearable</td>
+    <td><input type="radio" name="q17" value="D">rarely</td>
+</tr>
+<tr>
+    <td>18</td>
+    <td>Do you lose your temper easily?</td>
+    <td><input type="radio" name="q18" value="A">Yes, i am hot-tempered</td>
+    <td><input type="radio" name="q18" value="B">sometimes occasions demand it</td>
+    <td><input type="radio" name="q18" value="C">rarely I try to keep my anger under control</td>
+    <td><input type="radio" name="q18" value="D">I can't remember the last time I got angry</td>
+</tr>
+<tr>
+    <td>19</td>
+    <td>How often do you have your health check-up?</td>
+    <td><input type="radio" name="q19" value="A">Never , I will go to a doctor only when i am dying</td>
+    <td><input type="radio" name="q19" value="B">whenever a doctor has advised me</td>
+    <td><input type="radio" name="q19" value="C">once in 2 years</td>
+    <td><input type="radio" name="q19" value="D">every year</td>
+</tr>
+<tr>
+    <td>20</td>
+    <td>How much time do you spend on entertainment with family and friends?</td>
+    <td><input type="radio" name="q20" value="A">No time for them</td>
+    <td><input type="radio" name="q20" value="B">occasionally sit with them</td>
+    <td><input type="radio" name="q20" value="C">less then an hour a day</td>
+    <td><input type="radio" name="q20" value="D">hours together every evening</td>
+</tr>
+<tr>
+    <td>21</td>
+    <td>How often do you get your eye-sight checked?</td>
+    <td><input type="radio" name="q21" value="A">Never done it in my life</td>
+    <td><input type="radio" name="q21" value="B">only when a problem arises</td>
+    <td><input type="radio" name="q21" value="C">onece in 2-3 years</td>
+    <td><input type="radio" name="q21" value="D">regularly every  year</td>
+</tr>
+<tr>
+    <td>22</td>
+    <td>How often do you go to a dentist?</td>
+    <td><input type="radio" name="q22" value="A">I never go to a dentist , I am scared</td>
+    <td><input type="radio" name="q22" value="B">only when a problem arises</td>
+    <td><input type="radio" name="q22" value="C">onece in 2-3 years</td>
+    <td><input type="radio" name="q22" value="D">regularly every year</td>
+</tr>
+<tr>
+    <td>23</td>
+    <td>what do you do if you are feeling unwell?</td>
+    <td><input type="radio" name="q23" value="A">self medicate</td>
+    <td><input type="radio" name="q23" value="B">visit a specialist</td>
+    <td><input type="radio" name="q23" value="C">go to nearest hospital</td>
+    <td><input type="radio" name="q23" value="D">consult my family physician immediately</td>
+</tr>
+<tr>
+    <td>24</td>
+    <td>How often do you take a vacation?</td>
+    <td><input type="radio" name="q24" value="A">I never take a vacation</td>
+    <td><input type="radio" name="q24" value="B">once a year</td>
+    <td><input type="radio" name="q24" value="C">twice a year</td>
+    <td><input type="radio" name="q24" value="D">once every quarter</td>
+</tr>
+<tr>
+    <td>25</td>
+    <td>How many hours do you watching tv or mobile everyday?</td>
+    <td><input type="radio" name="q25" value="A">4 hours or more</td>
+    <td><input type="radio" name="q25" value="B">2-3 hours</td>
+    <td><input type="radio" name="q25" value="C">1-2 hours</td>
+    <td><input type="radio" name="q25" value="D">less than one hour</td>
+</tr>
+</table>
+
+<input type="button" value="CHECK HQ" onclick="calculateTotalsAndFinalAnswer()">
+    </form>
+    Now ,for your self-satisfaction count total of A ,B ,C and D that you have ticked.<br>
+    A=____x1=____<br>
+    B=____x2=____<br>
+    C=____x3=____<br>
+    D=____x4=____<br>
+    total=   ____<br>
+    the total is your HQ.
+</center>
+
+</body>
+</html>
